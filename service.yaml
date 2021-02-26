@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  name: wechat-pdb
+  namespace: zhujq
+  labels:
+    name: wechat-pdb
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: wechat-pdb
