@@ -1,0 +1,25 @@
+on: [push]
+
+name: okteto-deploy-wechat-pdb
+
+jobs:
+
+  devflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+      
+    - uses: okteto/login@master
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+    
+    - name: "Activate personal namespace"
+      uses: okteto/namespace@master
+      with:
+        name: zhujq
+
+    - name: "Create deployment"
+      uses: okteto/apply@master
+      with:
+        manifest: deployment.yaml
