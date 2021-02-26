@@ -1,6 +1,10 @@
-on: [push]
-
 name: okteto-deploy-wechat-pdb
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: 0 21 * * *
 
 jobs:
 
