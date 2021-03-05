@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wechat-pdb
-  namespace: zhujq
+  namespace: zhujq2018
 spec:
   selector:
     matchLabels:
