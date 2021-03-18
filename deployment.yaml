@@ -16,6 +16,7 @@ spec:
       containers:
         - name: wechat-pdb
           image: zhujq/wechat
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 80
               protocol: TCP
