@@ -21,7 +21,7 @@ jobs:
     - name: "Activate personal namespace"
       uses: okteto/namespace@master
       with:
-        name: zhujq2018
+        name: zhujq2021
 
     - name: "Create deployment"
       uses: okteto/apply@master
