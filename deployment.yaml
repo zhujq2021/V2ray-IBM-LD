@@ -19,7 +19,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ub-novnc
-  namespace: zhujq2018
+  namespace: zhujq2021
 spec:
   selector:
     matchLabels:
@@ -52,3 +52,22 @@ spec:
         - name: ub-persistent-storage
           persistentVolumeClaim:
             claimName: ub-pv-claim
+---      
+    
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  name: ub-novnc
+  namespace: zhujq2021
+  labels:
+    name: ub-novnc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 6901
+    protocol: TCP
+  selector:
+    app: ub-novnc
